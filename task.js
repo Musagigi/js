@@ -35,33 +35,28 @@ var majorityElement = function (nums) {
 var trailingZeroes = function (n) {
 
 	let number = 0
-	let factorial = BigInt(1)
+	let factorial = 1
 
 	if (n < 2) {
 		return 0
 	}
-
 	for (let i = 1; i <= n; i++) {
-		factorial *= BigInt(i)
+		factorial *= i
 	}
 
 	factorial = factorial.toString()
 
-	for (let i = factorial.length - 1; i >= 0; i--) {
-
+	for (let i = 0; i < factorial.length; i++) {
 		if (factorial[i] == 0) {
 			number++
-		} else {
-			break
 		}
 	}
 
+	console.log(factorial);
 	return number
 };
 
-console.log(trailingZeroes(30));
-// console.log(trailingZeroes(10));
-// console.log(trailingZeroes(7));
+console.log(trailingZeroes(7));
 // console.log(trailingZeroes(4));
 // console.log(trailingZeroes(3));
 // console.log(trailingZeroes(0));
