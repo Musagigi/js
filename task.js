@@ -34,30 +34,35 @@ var majorityElement = function (nums) {
 // 172. Factorial Trailing Zeroes
 var trailingZeroes = function (n) {
 
+
 	let number = 0
-	let factorial = 1
+	let factorial = BigInt(1)
 
 	if (n < 2) {
 		return 0
 	}
 
 	for (let i = 1; i <= n; i++) {
-		factorial *= i
+		factorial *= BigInt(i)
 	}
 
 	factorial = factorial.toString()
 
-	for (let i = 0; i < factorial.length; i++) {
+	for (let i = factorial.length - 1; i >= 0; i--) {
+
 		if (factorial[i] == 0) {
 			number++
+		} else {
+			break
 		}
 	}
 
-	console.log(factorial);
 	return number
 };
 
-console.log(trailingZeroes(7));
+console.log(trailingZeroes(30));
+// console.log(trailingZeroes(10));
+// console.log(trailingZeroes(7));
 // console.log(trailingZeroes(4));
 // console.log(trailingZeroes(3));
 // console.log(trailingZeroes(0));
