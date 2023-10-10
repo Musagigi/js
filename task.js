@@ -62,9 +62,6 @@ var trailingZeroes = function (n) {
 console.log(trailingZeroes(30));
 // console.log(trailingZeroes(10));
 // console.log(trailingZeroes(7));
-// console.log(trailingZeroes(4));
-// console.log(trailingZeroes(3));
-// console.log(trailingZeroes(0));
 
 
 
