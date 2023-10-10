@@ -34,7 +34,6 @@ var majorityElement = function (nums) {
 // 172. Factorial Trailing Zeroes
 var trailingZeroes = function (n) {
 
-
 	let number = 0
 	let factorial = BigInt(1)
 
