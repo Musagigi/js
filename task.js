@@ -59,7 +59,7 @@ var trailingZeroes = function (n) {
 	return number
 };
 
-console.log(trailingZeroes(30));
+// console.log(trailingZeroes(30));
 // console.log(trailingZeroes(10));
 // console.log(trailingZeroes(7));
 
@@ -78,3 +78,12 @@ console.log(trailingZeroes(30));
 // }
 
 // f();
+
+// var a = {};
+// (function b(a) {
+// 	a.a = 10
+// 	a = null
+// })()
+
+// console.log(a);
+
