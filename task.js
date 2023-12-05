@@ -233,8 +233,51 @@ var removeDuplicates = function (nums) {
 
 // 80. Remove Duplicates from Sorted Array II
 var removeDuplicates2 = function (nums) {
+	let count = 0
+	let j = 1
 
+	for (let i = 1; i < nums.length; i++) {
+
+		if (nums[i] === nums[i - 1]) {
+			count++
+		} else {
+			count = 1
+		}
+
+		if (count <= 2) {
+			nums[j] = nums[i]
+			j++
+		}
+	}
+	nums.length = j
+	return nums.length
 }
+console.log(removeDuplicates2([0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
+// РЕШЕНИЕ №2
+// var removeDuplicates2 = function (nums) {
+// 	let obj = {}
 
-console.log(removeDuplicates2([0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
+// 	for (let i = 0; i < nums.length; i++) {
+
+// 		if (nums[i] in obj) {
+// 			obj[nums[i]]++
+// 		} else {
+// 			obj[nums[i]] = 1
+// 		}
+// 	}
+
+// 	let objKeys = Object.keys(obj)
+
+// 	objKeys.forEach(elem => {
+
+// 		if (obj[elem] > 2) {
+
+// 			let elemIndex = nums.indexOf(Number(elem))
+// 			nums.splice(elemIndex, obj[elem] - 2)
+// 		}
+// 	})
+
+// 	return nums.length
+// }
+// console.log(removeDuplicates2([0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
 // console.log(removeDuplicates2([1, 1, 1, 1]));
