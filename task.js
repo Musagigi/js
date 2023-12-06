@@ -252,7 +252,7 @@ var removeDuplicates2 = function (nums) {
 	nums.length = j
 	return nums.length
 }
-console.log(removeDuplicates2([0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
+// console.log(removeDuplicates2([0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
 // РЕШЕНИЕ №2
 // var removeDuplicates2 = function (nums) {
 // 	let obj = {}
@@ -281,3 +281,39 @@ console.log(removeDuplicates2([0, 0, 0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
 // }
 // console.log(removeDuplicates2([0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 3, 3, 4]));
 // console.log(removeDuplicates2([1, 1, 1, 1]));
+
+
+//169. Majority Element
+//Мажоритарный элемент - это элемент, занимающий более половины размера массива. Это означает, что мажоритарный элемент встречается чаще, чем все остальные элементы вместе взятые. То есть, если вы подсчитаете, сколько раз появляется мажоритарный элемент, и вычтете количество вхождений всех остальных элементов, вы получите положительное число.
+var majorityElement = function (nums) {
+
+	let count = 0
+	let majorityElement = null
+
+	nums.forEach(elem => {
+		if (count === 0) {
+			majorityElement = elem
+			count = 1
+		} else if (elem === majorityElement) {
+			count++
+		} else {
+			count--
+		}
+	})
+	return majorityElement
+};
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2, 5, 5, 5, 5, 1, 1, 1, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5]));
+
+
+// 189. Rotate Array
+var rotate = function (nums, k) {
+	let minusK = nums.length - k % nums.length
+	let t = nums.splice(minusK)
+	nums.unshift(...t)
+
+	return nums
+};
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
+console.log(rotate([-1, -100, 3, 99], 2));
+console.log(rotate([1, 2], 5));
+console.log(rotate([1, 2, 3, 4, 5, 6, 7, 8], 3));
