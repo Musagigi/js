@@ -293,12 +293,9 @@ var majorityElement = function (nums) {
 	nums.forEach(elem => {
 		if (count === 0) {
 			majorityElement = elem
-			count = 1
-		} else if (elem === majorityElement) {
-			count++
-		} else {
-			count--
 		}
+
+		count += (elem === majorityElement) ? 1 : -1
 	})
 	return majorityElement
 };
@@ -313,7 +310,34 @@ var rotate = function (nums, k) {
 
 	return nums
 };
-console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
-console.log(rotate([-1, -100, 3, 99], 2));
-console.log(rotate([1, 2], 5));
-console.log(rotate([1, 2, 3, 4, 5, 6, 7, 8], 3));
+// console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3));
+// console.log(rotate([-1, -100, 3, 99], 2));
+// console.log(rotate([1, 2], 5));
+// console.log(rotate([1, 2, 3, 4, 5, 6, 7, 8], 3));
+
+
+//121. Best Time to Buy and Sell Stock
+var maxProfit = function (prices) {
+
+	let minPrice = Infinity;
+	let maxProfit = 0;
+	let profit = 0
+
+	for (let i = 0; i < prices.length; i++) {
+
+		if (prices[i] < minPrice) {
+			minPrice = prices[i];
+		} else {
+			profit = prices[i] - minPrice;
+
+			if (profit > maxProfit) {
+				maxProfit = profit;
+			}
+		}
+	}
+
+	return maxProfit;
+};
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+// console.log(maxProfit([7, 6, 4, 3, 1]));
+// console.log(maxProfit([2, 4, 1]));
