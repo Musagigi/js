@@ -347,3 +347,21 @@ var maxProfit = function (prices) {
 var maxProfit = function (prices) {
 
 };
+
+function findSolution(target) {
+	function find(current, history) {
+		if (current == target) {
+			return history;
+		} else if (current > target) {
+			return null;
+		} else {
+			console.log(current);
+			return find(current + 5, `(${history} + 5)`) ||
+				find(current * 3, `(${history} * З)`);
+		}
+	}
+	return find(1, "1");
+}
+// console.log(findSolution(244));
+// 11 ~(((1 * З) + 5) * З)
+// (((((((((1 + 5) + 5) + 5) + 5) + 5) * З) * З) + 5) + 5) - 0.063
