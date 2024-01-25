@@ -365,3 +365,23 @@ function findSolution(target) {
 // console.log(findSolution(244));
 // 11 ~(((1 * З) + 5) * З)
 // (((((((((1 + 5) + 5) + 5) + 5) + 5) * З) * З) + 5) + 5) - 0.063
+
+
+// 455. Assign Cookies
+var findContentChildren = function (g, s) {
+
+	let sortedG = g.sort((a, b) => a - b)
+	let sortedS = s.sort((a, b) => a - b)
+	let currentG = 0
+	let currentS = 0
+
+	while (currentS < s.length && currentG < g.length) {
+
+		if (sortedS[currentS] >= sortedG[currentG]) {
+			currentG++
+		}
+		currentS++
+	}
+	return currentG
+};
+// console.log(findContentChildren([1, 2, 3], [1, 1]));
