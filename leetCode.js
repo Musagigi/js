@@ -385,3 +385,49 @@ var findContentChildren = function (g, s) {
 	return currentG
 };
 // console.log(findContentChildren([1, 2, 3], [1, 1]));
+
+
+//136. Single Number
+var singleNumber = function (nums) {
+	// let obj = {}
+
+	// nums.forEach(num => {
+
+	// 	if (!obj.hasOwnProperty(num)) {
+	// 		obj[num] = 1
+	// 	}
+	// 	else {
+	// 		obj[num]++
+	// 	}
+	// })
+
+	// let c = Object.entries(obj)
+	// for (let i = 0; i < c.length; i++) {
+
+	// 	if (c[i][1] === 1) {
+	// 		return +c[i][0]
+	// 	}
+	// }
+
+	// Решение через XOR - a ^ b - побитовое исключающее ИЛИ (XOR)
+	// Ставит 1 на бит результата, для которого только один из соответствующих битов операндов равен 1 (но не оба).
+	let result = 0
+
+	for (let i of nums) {
+		result ^= i
+		// console.log(i.toString(2));
+	}
+
+	return result
+};
+console.log(singleNumber([4, 1, 2, 1, 2]));
+
+// 100
+// 001
+// 101
+// 010
+// 111
+// 001
+// 110
+// 010
+// 100
