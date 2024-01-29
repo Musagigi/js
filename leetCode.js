@@ -418,16 +418,37 @@ var singleNumber = function (nums) {
 		// console.log(i.toString(2));
 	}
 
+
 	return result
 };
-console.log(singleNumber([4, 1, 2, 1, 2]));
+// console.log(singleNumber([4, 1, 2, 1, 2]));
 
-// 100
-// 001
-// 101
-// 010
-// 111
-// 001
-// 110
-// 010
-// 100
+
+
+// 268. Missing Number
+var missingNumber = function (nums) {
+	let numsSort = nums.sort((a, b) => a - b)
+
+	let current = 0
+
+	for (let i = 0; i < numsSort.length; i++) {
+		if (!numsSort.includes(current)) {
+			return current
+		}
+
+		current++
+	}
+
+	return current
+
+	// через XOR - разобрать
+	// var res = nums.length
+
+	// for (var i = 0; i < nums.length; i++) {
+	// 	res ^= i
+	// 	res ^= nums[i]
+	// }
+
+	// return res
+};
+// console.log(missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]));
